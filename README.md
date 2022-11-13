@@ -85,7 +85,8 @@ Faça um programa em python para calcular o número de Fibonacci e o fatorial de
 2 2 1
 4 24 3
 9 362880 34
-7 5040 13```
+7 5040 13
+```
 
 Crie um repositório no Github (ou Gitlab) com README.md e LICENSE.txt. Forneça o link do repositório.
 Faça o teste em um outro arquivo, logo abaixo, mostrando as linhas com erro:
@@ -95,6 +96,7 @@ Faça o teste em um outro arquivo, logo abaixo, mostrando as linhas com erro:
 2 2 1
 4 30 3
 9 362880 32
-7 5040 1```
+7 5040 1
+```
 
 -[Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
