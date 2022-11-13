@@ -12,7 +12,6 @@ def compareFrame(esse:(pd.DataFrame), aquele:(pd.DataFrame)):
     if not esse.equals(aquele):
         bino = esse.eq(aquele)  
         # Retorna uma matriz binária em que True são valores de mesmo indice idênticos.
-
         for i in range(bino.shape[0]):
             if not (bino.iloc[i].iat[1] and bino.iloc[i].iat[2]): 
             # NAND para conferir se nem o fatorial nem o fibonacci estão errados.
