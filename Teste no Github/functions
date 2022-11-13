@@ -27,7 +27,7 @@ class Numero():
         return [self.n,self.fatorial(),self.fibonacci()]
 
 # Faz o arquivo de saída calculado com a funçao 'tratamento' definida acima.
-outText = pd.DataFrame([Numero(int(n)).line() for n in testFile["#"].values],columns=testFile.columns.values)
+outText = pd.DataFrame([Numero(int(n)).line() for n in range(9)],columns=testFile.columns.values)
 with open(outName,"w") as testOut:
     testOut.write(' '.join(inputFile.iloc[0].values))
     testOut.write('\n')
