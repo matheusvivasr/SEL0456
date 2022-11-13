@@ -1,9 +1,12 @@
 import pandas as pd
 
-def nameFile(name, ext):
-    return "./Teste no Github/"+name+ext
+def readFile(name):
+    fileDirectory, fileExtension = "./Teste no Github/",".data"
+    fileName = fileDirectory+name+fileExtension
+    inputFile = pd.DataFrame([linhas.strip().split() for linhas in open(fileName).readlines()])
+    return pd.DataFrame(inputFile[1:].values,columns=inputFile.iloc[0].values)
 
-def comparar(esse:(pd.DataFrame), aquele:(pd.DataFrame)):
+def compareFrame(esse:(pd.DataFrame), aquele:(pd.DataFrame)):
 # Compara os dados e devolve uma lista com os números para os quais os valores divergiram.
     wLines = []     
     if not esse.equals(aquele):
@@ -17,17 +20,11 @@ def comparar(esse:(pd.DataFrame), aquele:(pd.DataFrame)):
                 # escreve para quais valores a resposta esta errada.
     return wLines
 
-fileExtension = ".data"
 
-fileName = nameFile("test", fileExtension)
-inputFile = pd.DataFrame([linhas.strip().split() for linhas in open(fileName).readlines()])
-testFile = pd.DataFrame(inputFile[1:].values,columns=inputFile.iloc[0].values)
+arquivo1 = readFile("arquivo-1")
+arquivo2 = readFile("arquivo-2")
 
-file2Name =  nameFile("test2", fileExtension)   #Arquivo a ser testado.
-input2File = pd.DataFrame([linhas.strip().split() for linhas in open(file2Name).readlines()])
-test2File = pd.DataFrame(input2File[1:].values,columns=input2File.iloc[0].values)
-
-linhas_erradas = comparar(testFile,test2File) #funçao definida no começo do programa.
+linhas_erradas = compareFrame(arquivo1, arquivo2) 
 
 if linhas_erradas==[]:print("Programa sem erros")
 else:print("Os valores foram errados encontrados nas linhas onde n = {",", ".join(linhas_erradas),"}")
