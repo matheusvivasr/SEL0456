@@ -1,4 +1,4 @@
-# SEL0456(2022)
+# Atividade 2
 
 ## Índice
 1. [Programa Fibonacci](#fibonacci)
