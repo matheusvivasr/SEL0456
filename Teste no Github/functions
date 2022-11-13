@@ -20,7 +20,7 @@ class Numero():
         return [self.n,fatorial(self.n),fibonacci(self.n)]
 
 
-outName = nameFile("outFile")
+outName = nameFile("arquivo-teste")
 numList = [1, 2, 4, 9, 7]
 
 # Faz o arquivo de saída calculado com a funçao 'tratamento' definida acima.
