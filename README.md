@@ -5,7 +5,6 @@
     1. [Preparação](#st1)
     2. [Iniciar Instalador](#st2)
 2. [Atividade 2](#a2)
-    1. [Subtópico](#st3)
 3. [Atividade 3](#a3)
 4. [Seminário - Pandas](#s1)
 5. [4 - Programação Funcional](#a4)
@@ -65,7 +64,7 @@ O Trabalho número 2 consiste na criação de um repositório no github ou gitla
 
 ## <a id = "a3"></a>Atividade 3
 
-Programa que troca as vírgulas por ';' em um arquivo de dados.
+Programa que troca as vírgulas por ```;``` em um arquivo de dados.
 
 - [Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
 
@@ -73,7 +72,7 @@ Programa que troca as vírgulas por ';' em um arquivo de dados.
 
 Programa que lê um arquivo com pares de números separados por espaço ou vírgula e produza um arquivo de saída denominado por "output.dat" no format:
 
-Linha n: Fib(x)=X Fact(y)=Y
+```Linha n: Fib(x)=X Fact(y)=Y```
 
 - [4 - Programação Funcional](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
 
@@ -99,4 +98,4 @@ Faça o teste em um outro arquivo, logo abaixo, mostrando as linhas com erro:
 7 5040 1
 ```
 
-- [Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
+- [Teste no Github](https://github.com/matheusvivasr/SEL0456/tree/master/Teste%20no%20Github)
