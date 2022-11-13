@@ -1,0 +1,43 @@
+import pandas as pd
+
+def nameFile(name, ext):
+    return "./Teste no Github/"+name+ext
+
+fileExtension = ".data"
+outName =  nameFile("outFile", fileExtension)
+
+class Numero():
+    def __init__(self,num:int):
+        self.n = num
+
+    def fatorial(self, n = None):
+        if n==None:n = self.n
+        
+        if n == 1:return n
+        else:return n*self.fatorial(n-1)
+
+    def fibonacci(self, n = None):
+        if n==None:n = self.n
+        
+        if n < 1:return 0
+        elif n==1:return 1
+        else:return self.fibonacci(n-1)+self.fibonacci(n-2)
+
+    def line(self):    #simplifica o cálculo de cada numero.
+        return [self.n,self.fatorial(),self.fibonacci()]
+
+# Faz o arquivo de saída calculado com a funçao 'tratamento' definida acima.
+outText = pd.DataFrame([Numero(int(n)).line() for n in testFile["#"].values],columns=testFile.columns.values)
+with open(outName,"w") as testOut:
+    testOut.write(' '.join(inputFile.iloc[0].values))
+    testOut.write('\n')
+    for i in range(outText.shape[0]):   #escreve o arquivo de saída em acordo com o modelo esperado.
+        for j in range(outText.shape[1]):
+            testOut.write(str(outText.iloc[i].values[j]))
+            if j < outText.shape[1]-1: testOut.write(' ')
+        if i < outText.shape[0]-1: testOut.write('\n')
+
+
+#lê o arquivo de saída feito acima para poder comparar com a entrada a ser testada.
+outputFile = pd.DataFrame([linhas.strip().split() for linhas in open(outName).readlines()])
+outFile = pd.DataFrame(outputFile[1:].values,columns=outputFile.iloc[0].values)
