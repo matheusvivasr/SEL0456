@@ -30,11 +30,12 @@ try:
 except IOError:
     print("   ERRO: Arquivos inexistentes! Verifique se os arquivos estão na pasta certa e o nome correto.")
 
-print("- Teste com o arquivo gerado pelo 'functions.py':")
+
+print("- Teste com o arquivo gerado pelo 'fiboFact.py':")
 try:
     arquivoT=readFile("arquivo-teste")
     linhas_erradasT = compareFrame(arquivo1, arquivoT)
     if linhas_erradasT==[]:print("   Programa sem erros")
     else:print("   Os valores foram errados encontrados nas linhas onde n = {",", ".join(linhas_erradasT),"}")
 except IOError:
-    print("   ERRO:'arquivo-teste' não existe! Gere o arquivo a partir do 'functions.py'.")
+    print("   ERRO:'arquivo-teste' não existe! Gere o arquivo a partir do 'fiboFact.py'.")
