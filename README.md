@@ -10,7 +10,7 @@
 4. [Seminário - Pandas](#s1)
 5. [4 - Programação Funcional](#a4)
 6. [Teste no Github](#a5)
-X. [Tópico X](#aX)
+7. [Tópico X](#aX)
     1. [Subtópico](#stX)
 
 ## <a id = "a1"></a>Tutorial: Instalação Debian 11 em Dual Boot
@@ -60,14 +60,14 @@ X. [Tópico X](#aX)
 
 O Trabalho número 2 consiste na criação de um repositório no github ou gitlab onde o aluno deverá elaborar um programa para o cálculo do número de Fibonacci de duas maneiras distintas: uma usando um laço (for) e outra utilizando a técnica de recursividade. A técnica de recursividade, de preferência, deverá ser implementada em um branch à parte. O aluno deverá então passar o link do branch para que possa ser avaliado.
 
--[Atividade 2](https://github.com/matheusvivasr/SEL0456/blob/master/Atividade%202/README.md)
--[Repo Atividade 2](https://github.com/matheusvivasr/sel0456-fibo)
+- [Atividade 2](https://github.com/matheusvivasr/SEL0456/blob/master/Atividade%202/README.md)
+- [Repo Atividade 2](https://github.com/matheusvivasr/sel0456-fibo)
 
 ## <a id = "a3"></a>Atividade 3
 
 Programa que troca as vírgulas por ';' em um arquivo de dados.
 
--[Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
+- [Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
 
 ## <a id = "a4"></a>4 - Programação Funcional
 
@@ -75,7 +75,7 @@ Programa que lê um arquivo com pares de números separados por espaço ou vírg
 
 Linha n: Fib(x)=X Fact(y)=Y
 
--[4 - Programação Funcional](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
+- [4 - Programação Funcional](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
 
 ## <a id = "a5"></a>Teste no Github
 Faça um programa em python para calcular o número de Fibonacci e o fatorial de um número. Elabore um teste automatizado para ler um arquivo com alguns números já pré calculados e comparar com o calculado pelas funções do seu programa Python. O aquivo é o seguinte:
@@ -99,4 +99,4 @@ Faça o teste em um outro arquivo, logo abaixo, mostrando as linhas com erro:
 7 5040 1
 ```
 
--[Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
+- [Atividade 3](https://github.com/matheusvivasr/SEL0456/tree/master/Atividade%203)
