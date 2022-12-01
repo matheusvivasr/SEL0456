@@ -1,0 +1,1 @@
+# Algumas aplicaçoes de GTK+Python+Glade
