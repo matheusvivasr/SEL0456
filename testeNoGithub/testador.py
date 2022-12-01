@@ -1,9 +1,8 @@
 from pandas import DataFrame as pDF
-from fiboFact import fiboFactFile as fff
+from fiboFact import fiboFactFile, nameFile as fff, nf
 
 def readFile(name:str):
-    fileDirectory, fileExtension = "./Teste no Github/",".data"
-    fileName = fileDirectory+name+fileExtension
+    fileName = nf(name)
     inputFile = pDF([linhas.strip().split() for linhas in open(fileName).readlines()])
     return pDF(inputFile[1:].values,columns=inputFile.iloc[0].values)
 
