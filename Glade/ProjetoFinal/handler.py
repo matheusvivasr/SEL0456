@@ -1,14 +1,47 @@
+#!/usr/bin/python
+
+import gi
+
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+
+
+class MyWindow(Gtk.Window):
+    def __init__(self):
+        super().__init__(title="janela")
+
+        self.button = Gtk.Button(label="po aperta")
+        self.button.connect("clicked", self.on_button_clicked)
+        self.add(self.button)
+
+    def on_button_clicked(self, widget):
+        print("tao me apertando aqui vei")
+
+
+win = MyWindow()
+win.connect("destroy", Gtk.main_quit)
+win.show_all()
+Gtk.main()
+
+
+
+
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from medida import Unidade
 from functions import lerMedidas, lerPotencias
 
+def ligar(nome):
+    ligar = BoraMofio(nome)
+    Gtk.main()
+
 class BoraMofio: 
-    def __init__(self):
+    def __init__(self,name:str):
     #   Gtk iniciadores
         self.builder = Gtk.Builder()
-        self.builder.add_from_file("projeto.glade")
+        fileName = name+'.glade'
+        self.builder.add_from_file(fileName)
         self.builder.connect_signals(self)
         self.window = self.builder.get_object('janela')      
         self.window.show()
@@ -36,7 +69,7 @@ class BoraMofio:
         combo.add_attribute(renderer_text, "text", 1)
         combo.set_active(n)
 
-#   usada para setar as medidas a partir do tipo de medida selecionado em cima]
+#   usada para setar as medidas a partir do tipo de medida selecionado em cima
 #       comprimento: metro, milha, polegada etc
     def mudou(self, box):
 
@@ -86,16 +119,38 @@ class BoraMofio:
         valorOut = a.converter(unitconstOut, expoOut)
 
         self.numOutput.set_text(str(valorOut))
-
         
     #   funcao para trocar as unidades da entrada e saida
     def inverte(self, botao):
         #   salvar os ids ativos nos box de Unidade
-        #   salvar o  valor do input
-        #   trocar os ids ativos das unidades
-        #   colocar o valor do input no output
-        print("Volte mais tarde\n Em manutenção!")#    faz nada ainda kkkkkkk
+        unitIn = self.unitInput.get_active()
+        unitOut = self.unitOutput.get_active()
 
-def ligar():
-    ligar = BoraMofio()
-    Gtk.main()
+        powIn = self.powInput.get_active()
+        powOut = self.powOutput.get_active()
+
+        #   salvar o  valor do input
+        valorIn = self.numInput.get_text()
+        valorOut = self.numOutput.get_text()
+
+        #   trocar os ids ativos das unidades
+        self.unitInput.set_active(unitOut)
+        self.unitOutput.set_active(unitIn)
+
+        #   troca os ids ativos nas ordens de grandeza
+        self.powInput.set_active(powOut)
+        self.powOutput.set_active(powIn)
+
+        #   colocar o valor do input no output
+        self.numInput.set_text(valorOut)
+        self.numOutput.set_text(valorIn)
+
+
+#   Coisasa a arrumar se der tempo
+#       - trocar a Entry do Output para um Label
+#       - adicionar botao de copiar unidade formatada com unidade 
+#           '15.8ft' - Copiado!
+#       - adicionar uma label que forme uma frase com a conversao
+#           '300g equivalem a 0.3kg'
+#           essa label pode ser pra colocar a frase de copiar tambem
+#       - tirar os Handlers 'aa' e 'aaaaa' da Entry de input
