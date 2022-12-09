@@ -1,31 +1,3 @@
-#!/usr/bin/python
-
-import gi
-
-gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
-
-
-class MyWindow(Gtk.Window):
-    def __init__(self):
-        super().__init__(title="janela")
-
-        self.button = Gtk.Button(label="po aperta")
-        self.button.connect("clicked", self.on_button_clicked)
-        self.add(self.button)
-
-    def on_button_clicked(self, widget):
-        print("tao me apertando aqui vei")
-
-
-win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()
-
-
-
-
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
@@ -85,7 +57,6 @@ class BoraMofio:
         self.comboText(self.unitInput,self.liststore,0)
         self.comboText(self.unitOutput,self.liststore,-1)
 
-
 #   usada para setar as grandezas da entrada
 #      metro: km, cm, μm etc
     def mudouUnitIn(self, box):
@@ -144,7 +115,6 @@ class BoraMofio:
         #   colocar o valor do input no output
         self.numInput.set_text(valorOut)
         self.numOutput.set_text(valorIn)
-
 
 #   Coisasa a arrumar se der tempo
 #       - trocar a Entry do Output para um Label
