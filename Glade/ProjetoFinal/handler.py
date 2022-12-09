@@ -29,55 +29,64 @@ class BoraMofio:
     def distruiu(self, *args):Gtk.main_quit()
     
 #   funcao para atualizar o setstore (usada para cada um dos 4 comboBox)
-    def comboText(self,combo,store):
+    def comboText(self,combo,store,n):
         combo.set_model(store)
         renderer_text = Gtk.CellRendererText()
         combo.pack_start(renderer_text, True)
         combo.add_attribute(renderer_text, "text", 1)
+        combo.set_active(n)
 
 #   usada para setar as medidas a partir do tipo de medida selecionado em cima]
 #       comprimento: metro, milha, polegada etc
     def mudou(self, box):
+
+        self.numInput.set_text('')
+        self.numOutput.set_text('')
+        self.powOutput.set_active(-1)
+
         unitType = box.get_active_text()
         self.liststore = Gtk.ListStore(str)
         self.units = lerMedidas(unitType.lower())
         for n in self.units.index.values:
             self.liststore.append([n.capitalize()])
-        self.comboText(self.unitInput,self.liststore)
-        self.comboText(self.unitOutput,self.liststore)
+        self.comboText(self.unitInput,self.liststore,0)
+        self.comboText(self.unitOutput,self.liststore,-1)
+
 
 #   usada para setar as grandezas da entrada
 #      metro: km, cm, μm etc
     def mudouUnitIn(self, box):
         unit = box.get_active_text()
-        self.liststorePowI = Gtk.ListStore(str)
+        liststorePow = Gtk.ListStore(str)
         for n in range(len(self.pows.index.values)):
-            self.liststorePowI.append([self.pows.values[n][0]+self.units.loc[unit].iat[0]])
-        self.comboText(self.powInput,self.liststorePowI)
+            liststorePow.append([self.pows.values[n][0]+self.units.loc[unit].iat[0]])
+        self.comboText(self.powInput,liststorePow,7)
 #   usada de maneira similar para a saida
     def mudouUnitOut(self, box):
         unit = box.get_active_text()
-        self.liststorePowO = Gtk.ListStore(str)
+        liststorePow = Gtk.ListStore(str)
         for n in range(len(self.pows.index.values)):
-            self.liststorePowO.append([self.pows.values[n][0]+self.units.loc[unit].iat[0]])
-        self.comboText(self.powOutput,self.liststorePowO)
+            liststorePow.append([self.pows.values[n][0]+self.units.loc[unit].iat[0]])
+        self.comboText(self.powOutput,liststorePow,7)
     
     #   funcao para converter os valores
     def converte(self, botao):
         valor = float(self.numInput.get_text())
 
-        print(self.unitInput.get_active())
-
+        #   pega a constante de proporcionalidade de cada constante
         unitconstIn = self.units.loc[self.unitInput.get_active_text()].iat[1]
         unitconstOut = self.units.loc[self.unitOutput.get_active_text()].iat[1]
 
+        #   pega a potencia da ordem de grandeza
         expoIn = int(self.pows.values[self.powInput.get_active()][1])
         expoOut = int(self.pows.values[self.powOutput.get_active()][1])
 
+        #   converte a unidade e joga o valor 
         a = Unidade(valor,unitconstIn,expoIn)
         valorOut = a.converter(unitconstOut, expoOut)
 
         self.numOutput.set_text(str(valorOut))
+
         
     #   funcao para trocar as unidades da entrada e saida
     def inverte(self, botao):

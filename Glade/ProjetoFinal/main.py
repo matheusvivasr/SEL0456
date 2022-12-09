@@ -1,3 +1,3 @@
 from handler import ligar
 
-ligar()
+ligar('projeto')
